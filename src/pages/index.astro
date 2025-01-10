@@ -1,11 +1,87 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Image } from "astro:assets";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import cntDispersion from "../assets/images/cnt-dispersion.jpg";
+import cntThread2 from "../assets/images/cnt-thread-2.jpg";
 ---
 
 <Layout>
-	<Welcome />
+  <Hero />
+  <section class="py-16">
+    <div class="flex place-items-center gap-16 py-20 even:flex-row-reverse">
+      <Image
+        class="aspect-square max-w-[40%] rounded-md object-cover"
+        src={cntDispersion}
+        alt="raw, dispersed carbon nanotubes"
+      />
+      <div class="space-y-4">
+        <h2 class="text-pretty text-3xl font-medium text-primary-300">
+          Long Carbon Nanotubes For Composites
+        </h2>
+        <p>
+          At 30 times stronger than kevlar, our long carbon nanotubes are
+          dispersable, workable, and ready for mixing into epoxies and plastics
+          (as seen in the image above).
+        </p>
+        <p>
+          Short carbon nanotubes (&lt;100 microns) pull out of expoxies and
+          other materials. Long (1 mm to 2 cm), strong carbon nanotubes form a
+          complete, intertwined mesh of support and can not pull out. Their
+          strength is transferred to the matrix making it stiffer and stronger
+          as well as electrically and thermally conductive.
+        </p>
+      </div>
+    </div>
+    <div class="flex place-items-center gap-16 py-20 even:flex-row-reverse">
+      <Image
+        class="aspect-square max-w-[40%] rounded-md object-cover"
+        src={cntThread2}
+        alt="a carbon nanotube thread"
+      />
+      <div class="space-y-4">
+        <h2 class="text-pretty text-3xl font-medium text-primary-300">
+          High-Strength Carbon Nanotube Threads
+        </h2>
+        <p>
+          With our carbon nanotubes we’ve started pushing commercial spinning of
+          pure carbon nanotube threads that will have 100 gigapascals of tensile
+          strength making continuous threads that are safe, strong, light,
+          flexible, and have many applications across products and industries.
+        </p>
+      </div>
+    </div>
+    <div class="flex place-items-center gap-16 py-20 even:flex-row-reverse">
+      <Image
+        class="aspect-square max-w-[40%] rounded-md object-cover"
+        src={cntThread2}
+        alt="a carbon nanotube thread"
+      />
+      <div class="space-y-4">
+        <h2 class="text-pretty text-3xl font-medium text-primary-300">
+          The Material Of The Future
+        </h2>
+        <p>
+          <strong>Carbon nanotubes</strong> are one of the most innovative materials
+          ever invented and stand ready to disrupt everything from tennis racquets
+          to spacecraft, sailboat racing, aerospace, automotive, and far beyond.
+        </p>
+        <ul class="list-inside list-disc">
+          <li>30x stronger than kevlar, 20x stronger than carbon fiber</li>
+          <li>High chemical resistance</li>
+          <li>Light-weight</li>
+          <li>Readily workable</li>
+          <li>Incredibly flexible</li>
+          <li>Conductive or EM shielding</li>
+          <li>From 1 mm up to 2 cm long</li>
+        </ul>
+        <p>
+          Imagine a plane twice the size and half the weight of a 747, an
+          untwistable golf club, an unbendable tennis racket, an inflatable
+          space habitat system. Carbon nanotubes can enable each of these and
+          more.
+        </p>
+      </div>
+    </div>
+  </section>
 </Layout>

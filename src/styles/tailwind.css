@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@property --color-primary {
+		syntax: "<color>";
+		inherits: false;
+		initial-value: #1E688D;
+	}
+
+	@property --color-grayish-sat {
+		syntax: "<percentage>";
+		inherits: false;
+		initial-value: 5%;
+	}
+
+	@property --color-dark-step {
+		syntax: "<percentage>";
+		inherits: false;
+		initial-value: 8.5%;
+	}
+
+	@property --color-light-step {
+		syntax: "<percentage>";
+		inherits: false;
+		initial-value: 10.5%;
+	}
+
+	.scrollable::-webkit-scrollbar {
+		@apply h-2 w-2 bg-grayish-100 dark:bg-grayish-800;
+	}
+
+	.scrollable::-webkit-scrollbar-track {
+		@apply my-1 rounded-full bg-grayish-100 dark:bg-grayish-800;
+	}
+
+	.scrollable::-webkit-scrollbar-thumb {
+		@apply rounded-full bg-grayish-300 hover:bg-grayish-400 dark:bg-grayish-600 dark:hover:bg-grayish-500;
+	}
+
+	.dark .scrollable::-webkit-scrollbar {
+		@apply bg-grayish-700;
+	}
+
+	.dark .scrollable::-webkit-scrollbar-track {
+		@apply bg-grayish-700;
+	}
+
+	.dark .scrollable::-webkit-scrollbar-thumb {
+		@apply bg-grayish-800 hover:bg-grayish-700;
+	}
+
+	@supports (scrollbar-color: darkgray lightgray) {
+		.scrollable {
+			scrollbar-width: thin;
+			scrollbar-color: theme(colors.grayish.300) theme(colors.grayish.100);
+		}
+
+		html[data-theme="dark"].scrollable,
+		[data-theme="dark"] .scrollable,
+		.dark .scrollable {
+			scrollbar-color: theme(colors.grayish.600) theme(colors.grayish.800);
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-baloo2;
+	}
+}
