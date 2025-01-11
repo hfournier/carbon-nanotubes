@@ -14,13 +14,41 @@ import "../styles/tailwind.css";
     <meta name="generator" content={Astro.generator} />
     <title>Carbon Nanotubes</title>
   </head>
-  <body
-    class="scrollable mx-auto min-h-dvh w-full max-w-5xl bg-[#111116] text-white"
-  >
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+  <body class="scrollable bg-black text-white">
+    <div class="cursor relative overflow-hidden">
+      <div class="min-h-dvh w-full bg-[url('/carbon-sheet.svg')] bg-repeat">
+        <div class="mx-auto max-w-5xl">
+          <Header />
+          <main>
+            <slot />
+          </main>
+          <Footer />
+        </div>
+      </div>
+    </div>
+    <style>
+      .cursor {
+        &::before {
+          content: "";
+          position: absolute;
+          left: var(--x, 0px);
+          top: var(--y, 0px);
+          width: 200px;
+          aspect-ratio: 1;
+          background: radial-gradient(theme(colors.primary.800), transparent);
+          border-radius: 50%;
+          filter: blur(2rem);
+          z-index: -1;
+          overflow: hidden;
+        }
+      }
+    </style>
+    <script>
+      const cursor = document.querySelector<HTMLDivElement>(".cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursor?.style.setProperty("--x", `${e.pageX - 100}px`);
+        cursor?.style.setProperty("--y", `${e.pageY - 100}px`);
+      });
+    </script>
   </body>
 </html>
